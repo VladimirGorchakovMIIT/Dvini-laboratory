@@ -1,0 +1,65 @@
+type Cafe{
+    id:ID!,
+    name:String!,
+    description:String!
+    reviews:[Reviews]
+    dishes:[Dishes]
+}
+
+type Dishes{
+    id:ID!,
+    name:String!,
+    description:String,
+    cost:Float!,
+    owner:Cafe
+}
+
+type Reviews{
+    id:ID!,
+    title:String!,
+    description:String!,
+    estimation:Float!
+    owner:Cafe
+}
+
+type Query{
+    getAllCafe:[Cafe]
+    getCafeById(cafeId:ID):Cafe
+
+    getAllReviews:[Reviews]
+    getReviewsById(reviewsId:ID):Reviews
+
+    getAllDishes:[Dishes]
+    getDishesById(dishesId:ID):Dishes
+}
+
+type Mutation{
+    createCafe(cafeInput:CafeInput):String
+    updateCafe(cafeId:ID!, cafeInput:CafeInput):String
+    deleteCafeById(cafeId:ID!):String
+
+    createReviews(reviewsInput:ReviewsInput, ownerId:ID!):String
+    updateReviews(reviewsId:ID!, reviewsInput:ReviewsInput, ownerId:ID):String
+    deleteReviewsById(reviewsID:ID):String
+
+    createDishes(dishesInput:DishesInput, ownerId:ID!):String
+    updateDishes(dishesInput:DishesInput, ownerID:ID!, dishesId:ID!):String
+    deleteDishesById(dishesId:ID!):String
+}
+
+input CafeInput{
+    name:String!,
+    description:String!
+}
+
+input DishesInput{
+    name:String!,
+    description:String!,
+    cost:Float!,
+}
+
+input ReviewsInput{
+    title:String!,
+    description:String!,
+    estimation:Float!
+}
