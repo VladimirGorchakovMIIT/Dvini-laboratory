@@ -38,7 +38,7 @@ public class DishesControllerGraphQL {
 
     @MutationMapping
     public String updateDishes(@Argument DishesInput dishesInput, @Argument int ownerID, @Argument int dishesId){
-        Dishes dishes = new Dishes(dishesInput.name, "test", Double.parseDouble(dishesInput.cost.toString()), cafeService.getById(ownerID));
+        Dishes dishes = new Dishes(dishesInput.name, dishesInput.description, Double.parseDouble(dishesInput.cost.toString()), cafeService.getById(ownerID));
         return dishesService.update(dishes, dishesId);
     }
 

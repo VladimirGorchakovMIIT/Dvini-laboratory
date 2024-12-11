@@ -52,6 +52,7 @@ public class ReviewsServiceImpl implements ReviewsService {
             reviews.setTitle(reviewsUpdated.getTitle());
             reviews.setDescription(reviewsUpdated.getDescription());
             reviews.setEstimation(reviewsUpdated.getEstimation());
+            reviews.setOwner(reviewsUpdated.getOwner());
 
             create(reviews);
 

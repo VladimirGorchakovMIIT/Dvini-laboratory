@@ -37,8 +37,8 @@ public class ReviewControllerGraphQL {
     }
 
     @MutationMapping
-    private String updateReviews(@Argument int reviewsId, @Argument ReviewsInput reviewsInput, @Argument int cafeId){
-        Reviews reviews = new Reviews(reviewsInput.title, reviewsInput.description, reviewsInput.estimation, cafeService.getById(cafeId));
+    private String updateReviews(@Argument int reviewsId, @Argument ReviewsInput reviewsInput, @Argument int ownerId){
+        Reviews reviews = new Reviews(reviewsInput.title, reviewsInput.description, reviewsInput.estimation, cafeService.getById(ownerId));
         reviewsService.update(reviewsId, reviews);
         return "Was updated";
     }

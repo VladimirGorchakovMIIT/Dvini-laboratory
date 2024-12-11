@@ -52,6 +52,7 @@ public class DishesServiceImpl implements DishesService {
             dishes.setName(updateDishes.getName());
             dishes.setDescription(updateDishes.getDescription());
             dishes.setCost(updateDishes.getCost());
+            dishes.setOwner(updateDishes.getOwner());
 
             create(dishes);
 
